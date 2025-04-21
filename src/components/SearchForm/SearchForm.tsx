@@ -1,7 +1,8 @@
-import React from "react";
 import { generationList, typesList, sortList } from "@/utils/optionList";
+import { useSearchForm } from "@/components/SearchForm";
 
 const SearchForm = () => {
+  const {} = useSearchForm();
   return (
     <form className="grid grid-cols-4 gap-x-[20px]">
       <div>
