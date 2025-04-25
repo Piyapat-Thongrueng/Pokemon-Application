@@ -22,7 +22,10 @@ type pokemonType = {
 
 type UsePokemonListStoreType = {
     pokemon: pokemonType
-    fetchPokemon: pokemonType
+    fetchPokemon: pokemonType,
+    setPokemonList: (value: pokemonType) => void,
+    setFetchPokemonList: (value: pokemonType) => void,
+    clearPokemon: () => void,
 }
 
 export const usePokemonListStore = create<UsePokemonListStoreType>((set) => ({

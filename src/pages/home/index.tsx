@@ -1,8 +1,6 @@
 import SearchForm from "@/components/SearchForm";
 
 const HomePage = () => {
-
-
   return (
     <div className="w-[90%] m-[auto] max-w-[1100px]">
       <div className="flex justify-center">
