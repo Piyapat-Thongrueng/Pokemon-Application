@@ -1,6 +1,9 @@
 import SearchForm from "@/components/SearchForm";
+import { usePokemonListStore } from "@/store/pokemonList";
 
 const HomePage = () => {
+  const { pokemon } = usePokemonListStore();
+
   return (
     <div className="w-[90%] m-[auto] max-w-[1100px]">
       <div className="flex justify-center">
@@ -11,6 +14,12 @@ const HomePage = () => {
         />
       </div>
       <SearchForm />
+
+      <div>
+        {pokemon.data?.map((item)=> {
+          return <div className="text-white" key={`pokemon-${item.id}`}>{item.name}</div>
+        })}
+      </div>
     </div>
   );
 };
