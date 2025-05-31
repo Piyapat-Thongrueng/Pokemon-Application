@@ -1,6 +1,6 @@
 import { AxiosError, AxiosResponse } from "axios";
 
-export interface Iresponse {
+export interface IResponse {
   status: number | undefined;
   error?:
     | AxiosError<AxiosResponse<any, any>, any>
@@ -15,7 +15,7 @@ export const handleResponse = {
       data: res.data,
     };
   },
-  error: (res: AxiosError<AxiosResponse>): Iresponse => {
+  error: (res: AxiosError<AxiosResponse>): IResponse => {
     if (res.message === "Network Error") {
       return {
         status: 500,

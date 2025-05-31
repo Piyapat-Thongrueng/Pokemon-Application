@@ -1,9 +1,9 @@
 import axios from "axios";
 import { POKEMON_BASE_URL } from "@/utils/constant";
 import { IPokemonListResponse } from "@/interface/pokemonList";
-import { handleResponse, Iresponse } from "@/utils/handleResponse";
+import { handleResponse, IResponse } from "@/utils/handleResponse";
 
-interface IGetPokemonListResponse extends Iresponse {
+interface IGetPokemonListResponse extends IResponse {
   status: number | undefined;
   data?: IPokemonListResponse;
 }

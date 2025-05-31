@@ -10,9 +10,9 @@ const useSearchForm = () => {
     watch,
     formState: { errors },
   } = useForm();
-
   const { setFetchPokemonList, fetchPokemon, setPokemonList } =
     usePokemonListStore();
+
   const keyword = watch("keyword");
 
   const callData = async () => {
@@ -27,7 +27,12 @@ const useSearchForm = () => {
           pokemon.name
         );
         const pokeData = response.data;
-        pokeList.push({ ...pokeData });
+        pokeList.push({
+          ...pokeData,
+          image:
+            pokeData.sprites.other.dream_world.front_default ||
+            pokeData.sprites.other["official-artwork"].front_default,
+        });
       }
       setFetchPokemonList({ data: pokeList, loading: false, error: null });
     } else {
@@ -45,7 +50,7 @@ const useSearchForm = () => {
 
   useEffect(() => {
     const data = fetchPokemon.data.filter((item) =>
-      item.name.toLocaleLowerCase().includes(keyword?.toLocaleLowerCase())
+      item.name.toLowerCase().includes(keyword?.toLowerCase())
     );
     setPokemonList({
       data: data,
